@@ -1,5 +1,5 @@
 {% set name = "zeus-mcmc" %}
-{% set version = "2.4.1" %}
+{% set version = "2.5.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 43555c6782e40f1e9aa37008db7eaf79d537196377ba1f12a95a70c35b8534a2
+  sha256: 594baa90de4ad4488c4db5ed6a0446f7103bc4b3de787f4d7d23c91c9aa88769
   patches:
     # requirements and README.md aren't packaged
     - remove-requirements.patch
