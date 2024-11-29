@@ -6,30 +6,32 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 594baa90de4ad4488c4db5ed6a0446f7103bc4b3de787f4d7d23c91c9aa88769
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - setuptools
   run:
     - matplotlib-base
     - numpy
     - pytest
-    - python >=3.6
+    - python >={{ python_min }}
     - tqdm
     - scipy >=1.5.0
     - seaborn
     - scikit-learn
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - zeus
 
